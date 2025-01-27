@@ -6,7 +6,7 @@ public class KalkulatorPodatkowy {
         RYCZALT, LINIOWY, SKALA
     }
 
-    public static Double obliczPodatek(FormaOpodatkowania forma, double dochod, double koszty) {
+    public Double obliczPodatek(FormaOpodatkowania forma, double dochod, double koszty) {
         double podstawa = dochod - koszty;
         double podatek = 0;
 
@@ -25,13 +25,14 @@ public class KalkulatorPodatkowy {
                 } else {
                     podatek = podstawa * 0.32;
                 }
+                break;
             default:
                 throw new IllegalArgumentException("Podano nieznaną formę opodatkowania");
         }
         return podatek;
     }
 
-    public static double obliczSkladkeZdrowotna(FormaOpodatkowania forma, double dochod, double koszty) {
+    public double obliczSkladkeZdrowotna(FormaOpodatkowania forma, double dochod, double koszty) {
         double podstawa = dochod - koszty;
         double skladka = 0;
 
